@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Saket — E-Commerce Developer (Shopify & WordPress)</title>
   <meta name="description" content="Saket — Shopify & WordPress developer. 1.5 yrs building production e-commerce sites; React & Python automation; Big Data research; learning AI/ML." />
-  <meta property="og:title" content="Saket — E-Commerce Developer" />
-  <meta property="og:description" content="Shopify & WordPress developer with React, Python automation and Big Data research background." />
   <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="assets/img/favicon.png" />
@@ -18,23 +16,27 @@
     .skill-pill { font-size: .85rem; padding: .28rem .6rem; border-radius: 999px; background: #fff; border: 1px solid #eef2ff; }
     .muted { color:#6b7280; }
     #lb-image {
-    width: auto;
-    max-width: 90vw;
-    max-height: calc(100vh - 140px);
-    object-fit: contain;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      width: auto;
+      max-width: 90vw;
+      max-height: calc(100vh - 140px);
+      object-fit: contain;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  /* Small fade transition for modal image */
-  #lb-image.fade {
-    opacity: 0;
-    transition: opacity 220ms ease;
-  }
-  #lb-image.show {
-    opacity: 1;
-  }
+    /* Small fade transition for modal image */
+    #lb-image.fade {
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+    #lb-image.show {
+      opacity: 1;
+    }
+
+    /* small ring styles for active thumb (Tailwind utility class fallback for non-tailwind usage) */
+    .ring-2 { box-shadow: 0 0 0 4px rgba(79,70,229,0.12); }
+    .ring-indigo-500 { outline: 2px solid rgba(79,70,229,0.9); outline-offset: 2px; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
@@ -88,9 +90,7 @@
 
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#projects" class="inline-block px-5 py-2 bg-indigo-600 text-white rounded transition-smooth">View work</a>
-          <!-- REPLACE resume.pdf with your file in repo root -->
           <a href="resume.pdf" class="inline-block px-5 py-2 border rounded transition-smooth">Download CV</a>
-          <!-- REPLACE your.email@example.com -->
           <a href="mailto:saketk2131@gmail.com" class="inline-block px-5 py-2 text-indigo-600 border rounded transition-smooth">Email me</a>
         </div>
 
@@ -115,13 +115,13 @@
       </div>
 
       <div class="hidden md:block text-center">
-        <!-- REPLACE with your headshot at assets/img/headshot.jpg -->
+        <!-- Headshot (ensure path & filename match your assets) -->
         <img src="asset/Saket_Profile_headshot.webp" alt="Saket headshot" class="w-56 h-56 rounded-2xl object-cover shadow-md mx-auto" />
         <div class="mt-3 text-sm muted">Shopify + WordPress Developer</div>
       </div>
     </section>
 
-    <!-- SERVICES (for clients & recruiters) -->
+    <!-- SERVICES -->
     <section id="services" class="py-6">
       <h2 class="text-xl font-semibold mb-4">Services I provide</h2>
       <div class="grid gap-4 md:grid-cols-3">
@@ -132,7 +132,7 @@
         </div>
         <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
           <h3 class="font-semibold">WordPress Development</h3>
-          <p class="muted text-sm mt-1">Custom ACF-based templates, Page Builders(Elementor WP Bakery & Divi), theme customization, WooCommerce setup, PHP functionality, and SEO-friendly site builds.</p>
+          <p class="muted text-sm mt-1">Custom ACF-based templates, Page Builders, theme customization, WooCommerce setup, PHP functionality, and SEO-friendly site builds.</p>
           <div class="mt-3 text-xs muted">Tech: PHP · ACF · MySQL · WooCommerce</div>
         </div>
         <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
@@ -147,38 +147,28 @@
 <section id="work" class="py-6">
   <h2 class="text-xl font-semibold mb-4">Work Experience</h2>
   <div class="space-y-4">
-
-    <!-- JOB EXPERIENCE -->
     <div class="bg-white p-4 rounded shadow flex flex-col md:flex-row items-start md:items-center justify-between card-hover transition-smooth">
       <div class="md:flex-1">
         <div class="flex items-baseline space-x-3">
           <div class="font-semibold">WordPress & Shopify Developer</div>
           <div class="text-sm muted">• Current</div>
         </div>
-
         <div class="text-sm muted mt-2 max-w-2xl">
           Maintain and develop production e-commerce stores across Shopify and WordPress.
           Work includes custom Liquid sections, full storefront customization,
           PHP/ACF development, SQL handling, SEO-safe migrations, and API-based product/order workflows.
-          Also responsible for Python automation scripts used for catalog, order, and customer migrations.
         </div>
-
         <ul class="mt-3 text-sm muted list-disc list-inside">
           <li>Built 10+ Shopify features and 10+ WordPress/ACF modules.</li>
           <li>Executed full-store migrations (WooCommerce → Shopify) with SEO continuity.</li>
           <li>Developed Python ETL scripts reducing manual migration effort by 70%+.</li>
-          <li>Integrated third-party apps for payments, logistics, reviews, and analytics.</li>
-          <li>Improved Core Web Vitals and optimized checkout/build performance.</li>
         </ul>
       </div>
-
       <div class="mt-4 md:mt-0 text-sm muted text-right">
         <div><strong>Netgains</strong></div>
         <div>Chandigarh, India</div>
       </div>
     </div>
-
-    <!-- PROJECTS -->
     <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
       <div class="flex items-center justify-between">
         <div>
@@ -187,101 +177,55 @@
         </div>
         <div class="text-sm muted">2020 – Present</div>
       </div>
-
       <p class="text-sm muted mt-2">
         Built a MERN e-commerce prototype with product listing, cart and admin panel.
-        Developed automation tools and Python scripts for data workflows. 
-        Created JavaScript games (like the Simon Game) during early development phase.
-        Co-authored a Big Data research paper focusing on analysis and visualization.
-        These projects highlight full-stack fundamentals, React experience, and scripting ability.
+        Developed automation tools and Python scripts for data workflows.
       </p>
     </div>
-
   </div>
 </section>
 
-
-    <!-- SKILLS -->
+<!-- SKILLS -->
 <section id="skills" class="py-6">
   <h2 class="text-xl font-semibold mb-4">Skills & Tools</h2>
-
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-
-    <!-- E-COMMERCE -->
     <div class="bg-white p-4 rounded shadow">
       <h3 class="font-medium">E-commerce (Shopify)</h3>
-      <p class="muted text-sm mt-1">
-        Shopify · Liquid · Storefront customization · App integrations · Payments
-      </p>
+      <p class="muted text-sm mt-1">Shopify · Liquid · Storefront customization · App integrations · Payments</p>
       <div class="mt-3 flex flex-wrap gap-2">
         <span class="skill-pill">Shopify (Liquid)</span>
         <span class="skill-pill">Theme & Section Dev</span>
         <span class="skill-pill">Shopify API</span>
-        <span class="skill-pill">Data Migration (Python)</span>
       </div>
     </div>
-
-    <!-- WORDPRESS -->
     <div class="bg-white p-4 rounded shadow">
       <h3 class="font-medium">WordPress & Backend</h3>
-      <p class="muted text-sm mt-1">
-        ACF · PHP · Custom templates · SQL · WooCommerce · Hosting
-      </p>
+      <p class="muted text-sm mt-1">ACF · PHP · Custom templates · SQL · WooCommerce</p>
       <div class="mt-3 flex flex-wrap gap-2">
         <span class="skill-pill">WordPress</span>
         <span class="skill-pill">ACF / PHP</span>
         <span class="skill-pill">MySQL / SQL</span>
-        <span class="skill-pill">WooCommerce</span>
-        <span class="skill-pill">Performance</span>
       </div>
     </div>
-
-    <!-- FULL-STACK & AUTOMATION -->
     <div class="bg-white p-4 rounded shadow">
       <h3 class="font-medium">Full-Stack & Automation</h3>
-      <p class="muted text-sm mt-1">
-        React · Node · MERN · Python automation
-      </p>
+      <p class="muted text-sm mt-1">React · Node · MERN · Python automation</p>
       <div class="mt-3 flex flex-wrap gap-2">
         <span class="skill-pill">React</span>
         <span class="skill-pill">Node.js</span>
-        <span class="skill-pill">MERN</span>
         <span class="skill-pill">Python Automation</span>
       </div>
     </div>
-
-    <!-- DATA & ML LEARNING -->
     <div class="bg-white p-4 rounded shadow">
       <h3 class="font-medium">Data & ML (Learning)</h3>
-      <p class="muted text-sm mt-1">
-        Big Data · Pandas · ETL · ML basics
-      </p>
-      <div class="mt-3 flex flex-wrap gap-2">
-        <span class="skill-pill">Big Data</span>
-        <span class="skill-pill">Pandas / NumPy</span>
-        <span class="skill-pill">ML Fundamentals</span>
-        <span class="skill-pill">ETL Flows</span>
-      </div>
+      <p class="muted text-sm mt-1">Big Data · Pandas · ETL · ML basics</p>
     </div>
-
-    <!-- TOOLS -->
     <div class="bg-white p-4 rounded shadow">
       <h3 class="font-medium">Tools & Platforms</h3>
-      <p class="muted text-sm mt-1">
-        Git · GitHub · Docker · GTM · Hosting
-      </p>
-      <div class="mt-3 flex flex-wrap gap-2">
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">Docker (Basic)</span>
-        <span class="skill-pill">GTM / Analytics</span>
-        <span class="skill-pill">Hosting (Hostinger / WPE / SG)</span>
-        <span class="skill-pill">VS Code</span>
-      </div>
+      <p class="muted text-sm mt-1">Git · GitHub · Docker · GTM · Hosting</p>
     </div>
-
   </div>
 </section>
-
 
 <!-- PROJECTS -->
 <section id="projects" class="py-6">
@@ -291,12 +235,12 @@
 
     <!-- SHOPIFY 1 -->
     <article class="project-card bg-white rounded shadow p-4 card-hover transition-smooth">
-      <!-- thumbnails (use small optimized images) -->
       <div class="gallery grid grid-cols-3 gap-2 mb-3">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/DG/DG Home.webp" src="asset/DG/DG Home.webp" alt="Shopify1 homepage (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/DG/DG PDP.webp" src="asset/DG/DG PDP.webp" alt="Shopify1 product (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/DG/DG PLP.webp" src="asset/DG/DG PLP.webp" alt="Shopify1 product (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/DG/DG cart.webp" src="asset/DG/DG cart.webp" alt="Shopify1 collection (sanitized)">
+        <!-- data-order: 1=Home,2=PDP,3=PLP,4=Checkout -->
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="1" data-full="asset/DG/DG Home.webp" src="asset/DG/DG Home.webp" alt="Shopify1 homepage (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="2" data-full="asset/DG/DG PDP.webp" src="asset/DG/DG PDP.webp" alt="Shopify1 product (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="3" data-full="asset/DG/DG PLP.webp" src="asset/DG/DG PLP.webp" alt="Shopify1 PLP (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="4" data-full="asset/DG/DG cart.webp" src="asset/DG/DG cart.webp" alt="Shopify1 checkout (sanitized)">
       </div>
 
       <h3 class="font-semibold">Shopify — Full Store Migration & Theme</h3>
@@ -304,16 +248,15 @@
       <div class="mt-2 text-xs muted">Tech: Shopify · Liquid · Python (ETL) · APIs</div>
       <div class="mt-2 text-sm">Role: Lead Shopify developer — wrote Python ETL (Data Migration), mapped taxonomy, and implemented Liquid templates.</div>
       <div class="mt-3 text-sm muted">Impact: Reduced manual migration time by ~70%; improved homepage LCP by ~35% (sanitized).</div>
-      <div class="mt-3"><span class="text-xs muted">Link:</span> <span class="text-gray-500">Withheld — contact for anonymized report</span></div>
     </article>
 
     <!-- SHOPIFY 2 -->
     <article class="project-card bg-white rounded shadow p-4 card-hover transition-smooth">
       <div class="gallery grid grid-cols-3 gap-2 mb-3">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/S15/S15 Home.webp" src="asset/S15/S15 Home.webp" alt="Shopify2 homepage (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/S15/S15 PDP.webp" src="asset/S15/S15 PDP.webp" alt="Shopify2 collection (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/S15/S15 PLP.webp" src="asset/S15/S15 PLP.webp" alt="Shopify2 collection (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/S15/S15 Checkout.webp" src="asset/S15/S15 Checkout.webp" alt="Shopify2 product (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="1" data-full="asset/S15/S15 Home.webp" src="asset/S15/S15 Home.webp" alt="Shopify2 homepage (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="2" data-full="asset/S15/S15 PDP.webp" src="asset/S15/S15 PDP.webp" alt="Shopify2 PDP (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="3" data-full="asset/S15/S15 PLP.webp" src="asset/S15/S15 PLP.webp" alt="Shopify2 PLP (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="4" data-full="asset/S15/S15 Checkout.webp" src="asset/S15/S15 Checkout.webp" alt="Shopify2 checkout (sanitized)">
       </div>
 
       <h3 class="font-semibold">Shopify — Custom Theme & Conversion Feature</h3>
@@ -324,17 +267,14 @@
       <div class="mt-3 text-sm"><a href="https://github.com/saket3171" target="_blank" class="text-indigo-600">Sample code</a></div>
     </article>
 
-    <!-- SHOPIFY 3 -->
+    <!-- SHOPIFY 3 (REORDERED & DUPLICATE REMOVED) -->
     <article class="project-card bg-white rounded shadow p-4 card-hover transition-smooth">
       <div class="gallery grid grid-cols-3 gap-2 mb-3">
-        
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/ZC/Z PLP.webp" src="asset/ZC/Z PLP.webp" alt="Shopify3 product (sanitized)">
-
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/ZC/Z Home.webp" src="asset/ZC/Z Home.webp" alt="Shopify3 homepage (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/ZC/Z PDP.webp" src="asset/ZC/Z PDP.webp" alt="Shopify3 product (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/ZC/Z PLP.webp" src="asset/ZC/Z PLP.webp" alt="Shopify3 product (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="asset/ZC/Z Checkout.webp" src="asset/ZC/Z Checkout.webp" alt="Shopify3 collection (sanitized)">
-
+        <!-- Ensure these filenames exist exactly (case-sensitive on many servers) -->
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="1" data-full="asset/ZC/Z Home.webp" src="asset/ZC/Z Home.webp" alt="Shopify3 homepage (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="2" data-full="asset/ZC/Z PDP.webp" src="asset/ZC/Z PDP.webp" alt="Shopify3 PDP (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="3" data-full="asset/ZC/Z PLP.webp" src="asset/ZC/Z PLP.webp" alt="Shopify3 PLP (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="4" data-full="asset/ZC/Z Checkout.webp" src="asset/ZC/Z Checkout.webp" alt="Shopify3 checkout (sanitized)">
       </div>
 
       <h3 class="font-semibold">Shopify — Performance & Checkout Improvements</h3>
@@ -347,45 +287,38 @@
     <!-- WORDPRESS 1 -->
     <article class="project-card bg-white rounded shadow p-4 card-hover transition-smooth">
       <div class="gallery grid grid-cols-3 gap-2 mb-3">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/wp1/home.jpg" src="assets/img/wp1/hero.jpg" alt="WP1 homepage (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/wp1/acf-admin.jpg" src="assets/img/wp1/acf-thumb.jpg" alt="WP1 ACF admin (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/wp1/product.jpg" src="assets/img/wp1/product-thumb.jpg" alt="WP1 product (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="1" data-full="assets/img/wp1/hero.jpg" src="assets/img/wp1/hero.jpg" alt="WP1 homepage (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="2" data-full="assets/img/wp1/acf-thumb.jpg" src="assets/img/wp1/acf-thumb.jpg" alt="WP1 ACF admin (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="3" data-full="assets/img/wp1/product-thumb.jpg" src="assets/img/wp1/product-thumb.jpg" alt="WP1 product (sanitized)">
       </div>
 
       <h3 class="font-semibold">WordPress — ACF-driven CMS</h3>
       <p class="text-sm muted mt-1">Custom ACF templates and admin UI that let editors manage complex content and product structures.</p>
       <div class="mt-2 text-xs muted">Tech: WordPress · ACF · PHP · MySQL</div>
-      <div class="mt-2 text-sm">Role: Field groups, dynamic templates, and server-side import scripts.</div>
-      <div class="mt-3 text-sm muted">Impact: Cut content publishing time by ~60% (sanitized).</div>
     </article>
 
     <!-- WORDPRESS 2 -->
     <article class="project-card bg-white rounded shadow p-4 card-hover transition-smooth">
       <div class="gallery grid grid-cols-3 gap-2 mb-3">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/wp2/home.jpg" src="assets/img/wp2/hero.jpg" alt="WP2 homepage (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/wp2/product.jpg" src="assets/img/wp2/product-thumb.jpg" alt="WP2 product (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/wp2/admin.jpg" src="assets/img/wp2/admin-thumb.jpg" alt="WP2 admin (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="1" data-full="assets/img/wp2/hero.jpg" src="assets/img/wp2/hero.jpg" alt="WP2 homepage (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="2" data-full="assets/img/wp2/product-thumb.jpg" src="assets/img/wp2/product-thumb.jpg" alt="WP2 product (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="3" data-full="assets/img/wp2/admin-thumb.jpg" src="assets/img/wp2/admin-thumb.jpg" alt="WP2 admin (sanitized)">
       </div>
 
       <h3 class="font-semibold">WordPress — WooCommerce Setup & Optimization</h3>
       <p class="text-sm muted mt-1">Full WooCommerce setup, product architecture and site speed improvements for a mid-size store.</p>
-      <div class="mt-2 text-xs muted">Tech: WooCommerce · Elementor · PHP</div>
-      <div class="mt-2 text-sm">Role: Theme customizations, payment setup and publishing workflow improvements.</div>
-      <div class="mt-3 text-sm muted">Impact: Faster page loads and smoother product updates.</div>
     </article>
 
-    <!-- DATA MIGRATION / TOOL (public) -->
+    <!-- DATA MIGRATION / TOOL -->
     <article class="project-card bg-white rounded shadow p-4 card-hover transition-smooth">
       <div class="gallery grid grid-cols-3 gap-2 mb-3">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/tool/log1.jpg" src="assets/img/tool/log1-thumb.jpg" alt="migration log (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/tool/mapping.jpg" src="assets/img/tool/mapping-thumb.jpg" alt="mapping CSV preview (sanitized)">
-        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-full="assets/img/tool/diagram.jpg" src="assets/img/tool/diagram-thumb.jpg" alt="ETL diagram">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="1" data-full="assets/img/tool/log1-thumb.jpg" src="assets/img/tool/log1-thumb.jpg" alt="migration log (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="2" data-full="assets/img/tool/mapping-thumb.jpg" src="assets/img/tool/mapping-thumb.jpg" alt="mapping CSV preview (sanitized)">
+        <img class="thumb rounded cursor-pointer object-cover w-full h-28" data-order="3" data-full="assets/img/tool/diagram-thumb.jpg" src="assets/img/tool/diagram-thumb.jpg" alt="ETL diagram">
       </div>
 
       <h3 class="font-semibold">Migration Tool — Python ETL</h3>
       <p class="text-sm muted mt-1">CLI-based tool to export, transform, and import products/orders/customers with retries & logging.</p>
-      <div class="mt-2 text-xs muted">Tech: Python · Pandas · Shopify API · CSV</div>
-      <div class="mt-2 text-sm">Role: Author — modular design used across multiple migrations; created mapping and validation steps.</div>
       <div class="mt-3 text-sm">
         <a href="https://github.com/yourusername/shopify-migration" target="_blank" class="text-indigo-600">View code</a>
       </div>
@@ -409,41 +342,38 @@
   </div>
 </div>
 
+<!-- Testimonials / Impact -->
+<section id="testimonials" class="py-6">
+  <h2 class="text-xl font-semibold mb-4">Impact highlights</h2>
+  <div class="grid gap-4 md:grid-cols-3">
+    <div class="bg-white p-4 rounded shadow text-center">
+      <div class="font-semibold">Migration speed</div>
+      <div class="muted text-sm mt-1">Built migration tooling that reduced manual migration time by ~80% (internal).</div>
+    </div>
+    <div class="bg-white p-4 rounded shadow text-center">
+      <div class="font-semibold">Performance</div>
+      <div class="muted text-sm mt-1">Improved page load / Core Web Vitals for multiple stores.</div>
+    </div>
+    <div class="bg-white p-4 rounded shadow text-center">
+      <div class="font-semibold">Deliveries</div>
+      <div class="muted text-sm mt-1">Delivered 20+ Shopify features and several WordPress projects for production clients.</div>
+    </div>
+  </div>
+</section>
 
+<!-- Publications -->
+<section id="publications" class="py-6">
+  <h2 class="text-xl font-semibold mb-4">Research & Publications</h2>
+  <div class="bg-white rounded shadow p-4">
+    <h3 class="font-semibold">Big Data Analysis — Research Paper</h3>
+    <p class="text-sm muted mt-2">Co-authored a paper on Big Data analysis and visualization techniques.</p>
+    <div class="mt-3 text-sm">
+      <a href="https://www.ijltes.com/wp-content/uploads/2024/04/5.pdf" target="_blank" class="text-indigo-600">View Paper</a>
+    </div>
+  </div>
+</section>
 
-    <!-- TESTIMONIALS / IMPACT HIGHLIGHTS -->
-    <section id="testimonials" class="py-6">
-      <h2 class="text-xl font-semibold mb-4">Impact highlights</h2>
-      <div class="grid gap-4 md:grid-cols-3">
-        <div class="bg-white p-4 rounded shadow text-center">
-          <div class="font-semibold">Migration speed</div>
-          <div class="muted text-sm mt-1">Built migration tooling that reduced manual migration time by ~80% (internal).</div>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <div class="font-semibold">Performance</div>
-          <div class="muted text-sm mt-1">Improved page load / Core Web Vitals for multiple stores.</div>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <div class="font-semibold">Deliveries</div>
-          <div class="muted text-sm mt-1">Delivered 20+ Shopify features and several WordPress projects for production clients.</div>
-        </div>
-      </div>
-      <!-- Optional: replace above with real short testimonials -->
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="py-6">
-      <h2 class="text-xl font-semibold mb-4">Research & Publications</h2>
-      <div class="bg-white rounded shadow p-4">
-        <h3 class="font-semibold">Big Data Analysis — Research Paper</h3>
-        <p class="text-sm muted mt-2">Co-authored a paper on Big Data analysis and visualization techniques.</p>
-        <div class="mt-3 text-sm"><!-- REPLACE with real PDF path if available -->
-          <a href="https://www.ijltes.com/wp-content/uploads/2024/04/5.pdf" target="_blank" class="text-indigo-600">View Paper</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
+<!-- About -->
 <section id="about" class="py-6">
   <h2 class="text-xl font-semibold mb-4">About & Goals</h2>
   <div class="bg-white rounded shadow p-4">
@@ -453,60 +383,42 @@
       Liquid/ACF-based templates, automate data migrations with Python, and ensure performance,
       SEO, and user experience are aligned with business goals.
     </p>
-
-    <p class="muted mt-3">
-      I enjoy solving end-to-end product challenges — from planning and building features to
-      testing, deployment, and ongoing optimization. I’ve worked on full store migrations,
-      API-based integrations, and automation tools that reduce manual effort significantly.
-    </p>
-
-    <p class="muted mt-3">
-      Over the next 6–12 months, I am focusing on strengthening my skills in 
-      <strong> Data Engineering, and ML fundamentals</strong> so I can bring 
-      data-driven improvements to e-commerce such as automation pipelines, personalization,
-      and analytics-powered decision-making.
-    </p>
   </div>
 </section>
 
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-6 mb-12">
-      <h2 class="text-xl font-semibold mb-4">Contact</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-4 rounded shadow">
-          <h3 class="font-semibold">Get in touch</h3>
-          <p class="text-sm muted mt-2">Email: <a href="mailto:saketk2131@gmail.com" class="text-indigo-600">saketk2131@gmail.com</a></p>
-          <p class="text-sm muted mt-2">Location: Chandigarh, India</p>
-
-          <div class="mt-4 flex items-center space-x-3">
-            <!-- REPLACE links -->
-            <a href="https://github.com/saket3171" target="_blank" class="text-gray-600 hover:text-indigo-600">GitHub</a>
-            <a href="https://www.linkedin.com/in/saket-kumar-d31/" target="_blank" class="text-gray-600 hover:text-indigo-600">LinkedIn</a>
-            
-          </div>
-        </div>
-
-        <!-- Contact form (Formspree) -->
-        <form class="bg-white p-4 rounded shadow" action="https://formspree.io/f/<YOUR_ID>" method="POST">
-          <label class="block text-sm text-gray-700">Name</label>
-          <input name="name" required class="w-full border rounded px-3 py-2 mt-1"/>
-          <label class="block text-sm text-gray-700 mt-3">Email</label>
-          <input name="email" type="email" required class="w-full border rounded px-3 py-2 mt-1"/>
-          <label class="block text-sm text-gray-700 mt-3">Message</label>
-          <textarea name="message" rows="4" required class="w-full border rounded px-3 py-2 mt-1"></textarea>
-          <div class="mt-4 flex justify-between items-center">
-            <button class="px-4 py-2 bg-indigo-600 text-white rounded">Send</button>
-            <div class="text-xs muted">Or email: <a href="mailto:saketk2131@gmail.com" class="text-indigo-600">saketk2131@gmail.com</a></div>
-          </div>
-        </form>
-
+<!-- Contact -->
+<section id="contact" class="py-6 mb-12">
+  <h2 class="text-xl font-semibold mb-4">Contact</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="font-semibold">Get in touch</h3>
+      <p class="text-sm muted mt-2">Email: <a href="mailto:saketk2131@gmail.com" class="text-indigo-600">saketk2131@gmail.com</a></p>
+      <p class="text-sm muted mt-2">Location: Chandigarh, India</p>
+      <div class="mt-4 flex items-center space-x-3">
+        <a href="https://github.com/saket3171" target="_blank" class="text-gray-600 hover:text-indigo-600">GitHub</a>
+        <a href="https://www.linkedin.com/in/saket-kumar-d31/" target="_blank" class="text-gray-600 hover:text-indigo-600">LinkedIn</a>
       </div>
-    </section>
+    </div>
 
-    <footer class="py-6 text-sm text-gray-500 text-center">
-      © <span id="year"></span> Saket — Portfolio
-    </footer>
+    <form class="bg-white p-4 rounded shadow" action="https://formspree.io/f/<YOUR_ID>" method="POST">
+      <label class="block text-sm text-gray-700">Name</label>
+      <input name="name" required class="w-full border rounded px-3 py-2 mt-1"/>
+      <label class="block text-sm text-gray-700 mt-3">Email</label>
+      <input name="email" type="email" required class="w-full border rounded px-3 py-2 mt-1"/>
+      <label class="block text-sm text-gray-700 mt-3">Message</label>
+      <textarea name="message" rows="4" required class="w-full border rounded px-3 py-2 mt-1"></textarea>
+      <div class="mt-4 flex justify-between items-center">
+        <button class="px-4 py-2 bg-indigo-600 text-white rounded">Send</button>
+        <div class="text-xs muted">Or email: <a href="mailto:saketk2131@gmail.com" class="text-indigo-600">saketk2131@gmail.com</a></div>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<footer class="py-6 text-sm text-gray-500 text-center">
+  © <span id="year"></span> Saket — Portfolio
+</footer>
 
   </main>
 
@@ -520,188 +432,209 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
- <script>
-(function () {
-  // Elements (modal)
-  const lightbox = document.getElementById('lightbox');
-  const lbImage = document.getElementById('lb-image');
-  const lbCaption = document.getElementById('lb-caption');
-  const lbClose = document.getElementById('lb-close');
-  const lbPrev = document.getElementById('lb-prev');
-  const lbNext = document.getElementById('lb-next');
 
-  // state
-  let currentGallery = [];
-  let currentIndex = 0;
+  <script>
+  (function () {
+    // Elements (modal)
+    const lightbox = document.getElementById('lightbox');
+    const lbImage = document.getElementById('lb-image');
+    const lbCaption = document.getElementById('lb-caption');
+    const lbClose = document.getElementById('lb-close');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
 
-  // Helper: open modal with gallery array and index
-  function openLightbox(gallery, index) {
-    if (!Array.isArray(gallery) || gallery.length === 0) return;
-    currentGallery = gallery;
-    currentIndex = index % gallery.length;
-    showModal();
-  }
+    // state
+    let currentGallery = [];
+    let currentIndex = 0;
 
-  function showModal() {
-    if (!lbImage) return;
-    // fade out/in for smoothing
-    lbImage.classList.remove('show');
-    lbImage.classList.add('fade');
-
-    const item = currentGallery[currentIndex];
-    lbImage.src = item.full || '';
-    lbImage.alt = item.alt || '';
-    lbCaption.textContent = item.caption || '';
-
-    lbImage.onload = () => {
-      lbImage.classList.remove('fade');
-      lbImage.classList.add('show');
-    };
-    lbImage.onerror = () => {
-      // show caption fallback if image fails
-      lbImage.classList.remove('fade');
-      lbImage.classList.add('show');
-      lbCaption.textContent = item.caption ? item.caption + ' (image failed to load)' : 'Image failed to load.';
-    };
-
-    lightbox.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  function prev() {
-    if (!currentGallery.length) return;
-    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-    showModal();
-  }
-  function next() {
-    if (!currentGallery.length) return;
-    currentIndex = (currentIndex + 1) % currentGallery.length;
-    showModal();
-  }
-
-  // Build galleries and setup per-card autoplay + main display
-  document.querySelectorAll('.project-card').forEach((card, cardIdx) => {
-    const thumbs = Array.from(card.querySelectorAll('.thumb'));
-
-    if (!thumbs.length) return;
-
-    const galleryWrapper = card.querySelector('.gallery');
-    if (!galleryWrapper) return; // guard: nothing to attach to
-
-    // Build gallery array
-    const gallery = thumbs.map(t => ({
-      full: t.dataset.full || t.getAttribute('src') || '',
-      alt: t.alt || '',
-      caption: card.querySelector('h3')?.textContent?.trim() || ''
-    }));
-
-    if (gallery.length === 0) return;
-
-    // Create main display image (autoplaying carousel inside the card)
-    const mainDisplay = document.createElement('img');
-    mainDisplay.className = 'card-main rounded mb-3 w-full object-cover cursor-pointer';
-    mainDisplay.style.maxHeight = '260px';
-    mainDisplay.style.width = '100%';
-    mainDisplay.style.objectFit = 'cover';
-    mainDisplay.src = gallery[0].full;
-    mainDisplay.alt = gallery[0].alt || '';
-
-    // Insert mainDisplay before the thumbnails grid
-    galleryWrapper.parentNode.insertBefore(mainDisplay, galleryWrapper);
-
-    let index = 0;
-    const AUTOPLAY_MS = 2500;
-    let autoplayTimer = null;
-
-    function markActiveThumb(i) {
-      thumbs.forEach((t, j) => {
-        if (j === i) {
-          t.classList.add('ring-2');
-          t.classList.add('ring-indigo-500');
-        } else {
-          t.classList.remove('ring-2');
-          t.classList.remove('ring-indigo-500');
-        }
-      });
+    // Helper: open modal with gallery array and index
+    function openLightbox(gallery, index) {
+      if (!Array.isArray(gallery) || gallery.length === 0) return;
+      currentGallery = gallery;
+      currentIndex = ((index % gallery.length) + gallery.length) % gallery.length;
+      showModal();
     }
 
-    function showCardImage(i) {
-      index = ((i % gallery.length) + gallery.length) % gallery.length;
-      const item = gallery[index];
-      mainDisplay.src = item.full || '';
-      mainDisplay.alt = item.alt || '';
-      markActiveThumb(index);
+    function showModal() {
+      if (!lbImage) return;
+      lbImage.classList.remove('show');
+      lbImage.classList.add('fade');
+
+      const item = currentGallery[currentIndex] || {};
+      lbImage.src = item.full || '';
+      lbImage.alt = item.alt || '';
+      lbCaption.textContent = item.caption || '';
+
+      lbImage.onload = () => {
+        lbImage.classList.remove('fade');
+        lbImage.classList.add('show');
+      };
+      lbImage.onerror = () => {
+        lbImage.classList.remove('fade');
+        lbImage.classList.add('show');
+        lbCaption.textContent = (item.caption ? item.caption + ' (image failed to load)' : 'Image failed to load.');
+      };
+
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
 
-    function startAutoplay() {
-      if (autoplayTimer) return;
-      autoplayTimer = setInterval(() => {
-        index = (index + 1) % gallery.length;
-        showCardImage(index);
-      }, AUTOPLAY_MS);
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
     }
 
-    function stopAutoplay() {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
+    function prev() {
+      if (!currentGallery.length) return;
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      showModal();
+    }
+    function next() {
+      if (!currentGallery.length) return;
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      showModal();
+    }
+
+    // Build galleries and setup per-card autoplay + main display
+    document.querySelectorAll('.project-card').forEach((card) => {
+      // collect thumbs (nodeList -> array)
+      let thumbs = Array.from(card.querySelectorAll('.thumb'));
+
+      if (!thumbs.length) return;
+
+      // If thumbs have data-order attributes, sort by numeric data-order.
+      // If none have data-order, we keep DOM order (stable).
+      const hasOrder = thumbs.some(t => t.hasAttribute('data-order'));
+      if (hasOrder) {
+        thumbs.sort((a, b) => {
+          const ao = parseInt(a.dataset.order || '0', 10);
+          const bo = parseInt(b.dataset.order || '0', 10);
+          return ao - bo;
+        });
       }
-    }
 
-    // Pause autoplay when hovering card, resume when leaving
-    card.addEventListener('mouseenter', stopAutoplay);
-    card.addEventListener('mouseleave', startAutoplay);
+      // Build gallery array from sorted thumbnails
+      const gallery = thumbs.map(t => ({
+        full: t.dataset.full || t.getAttribute('src') || '',
+        alt: t.alt || '',
+        caption: card.querySelector('h3')?.textContent?.trim() || ''
+      })).filter(i => i.full); // filter out any entries without source
 
-    // Clicking main display opens lightbox at current index
-    mainDisplay.addEventListener('click', () => openLightbox(gallery, index));
+      if (!gallery.length) return;
 
-    // Thumbnail clicks: update main image (single click). Double-click opens lightbox.
-    thumbs.forEach((t, i) => {
-      t.addEventListener('click', (e) => {
-        showCardImage(i);
+      // Create main display image (autoplaying carousel inside the card)
+      const mainDisplay = document.createElement('img');
+      mainDisplay.className = 'card-main rounded mb-3 w-full object-cover cursor-pointer';
+      mainDisplay.style.maxHeight = '260px';
+      mainDisplay.style.width = '100%';
+      mainDisplay.style.objectFit = 'cover';
+      mainDisplay.src = gallery[0].full;
+      mainDisplay.alt = gallery[0].alt || '';
+
+      // Insert mainDisplay before the thumbnails grid (so it's visually above)
+      const galleryWrapper = card.querySelector('.gallery');
+      if (galleryWrapper && galleryWrapper.parentNode) {
+        galleryWrapper.parentNode.insertBefore(mainDisplay, galleryWrapper);
+      } else {
+        // fallback: append at top
+        card.insertBefore(mainDisplay, card.firstChild);
+      }
+
+      let index = 0;
+      const AUTOPLAY_MS = 2500;
+      let autoplayTimer = null;
+
+      function markActiveThumb(i) {
+        thumbs.forEach((t, j) => {
+          if (j === i) {
+            t.classList.add('ring-2');
+            t.classList.add('ring-indigo-500');
+          } else {
+            t.classList.remove('ring-2');
+            t.classList.remove('ring-indigo-500');
+          }
+        });
+      }
+
+      function showCardImage(i) {
+        index = ((i % gallery.length) + gallery.length) % gallery.length;
+        const item = gallery[index];
+        // set main display src (the onload/onerror handlers will show fade)
+        mainDisplay.src = item.full || '';
+        mainDisplay.alt = item.alt || '';
+        markActiveThumb(index);
+      }
+
+      function startAutoplay() {
+        if (autoplayTimer) return;
+        autoplayTimer = setInterval(() => {
+          index = (index + 1) % gallery.length;
+          showCardImage(index);
+        }, AUTOPLAY_MS);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      // Pause autoplay when hovering card, resume when leaving
+      card.addEventListener('mouseenter', stopAutoplay);
+      card.addEventListener('mouseleave', startAutoplay);
+
+      // Clicking main display opens lightbox at current index
+      mainDisplay.addEventListener('click', () => openLightbox(gallery, index));
+
+      // Thumbnail clicks: update main image (single click). Double-click opens lightbox.
+      thumbs.forEach((t, i) => {
+        t.addEventListener('click', (e) => {
+          showCardImage(i);
+        });
+        t.addEventListener('dblclick', (e) => {
+          openLightbox(gallery, i);
+        });
       });
-      t.addEventListener('dblclick', (e) => {
-        openLightbox(gallery, i);
-      });
+
+      // Make sure mainDisplay shows when it loads even if broken
+      mainDisplay.onload = () => {
+        mainDisplay.classList.remove('fade');
+        mainDisplay.classList.add('show');
+      };
+      mainDisplay.onerror = () => {
+        mainDisplay.classList.remove('fade');
+        mainDisplay.classList.add('show');
+        // optionally you can set a placeholder here if you have one:
+        // mainDisplay.src = 'assets/img/placeholder.png';
+      };
+
+      // mark initial active thumb (index 0)
+      markActiveThumb(0);
+
+      // Start autoplay
+      startAutoplay();
     });
 
-    // Make sure mainDisplay shows when it loads even if broken
-    mainDisplay.onerror = () => {
-      // keep a visual but mark as broken; you can point to a placeholder image here
-      mainDisplay.classList.remove('fade');
-      mainDisplay.classList.add('show');
-    };
+    // Modal controls
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    if (lbPrev) lbPrev.addEventListener('click', prev);
+    if (lbNext) lbNext.addEventListener('click', next);
 
-    // Start autoplay
-    startAutoplay();
-  });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
 
-  // Modal controls (guard in case DOM missing)
-  if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lbPrev) lbPrev.addEventListener('click', prev);
-  if (lbNext) lbNext.addEventListener('click', next);
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox || lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
 
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox || lightbox.classList.contains('hidden')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
-  });
-
-})();
-</script>
-
-
+  })();
+  </script>
 
 </body>
 </html>
