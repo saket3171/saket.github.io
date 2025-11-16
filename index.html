@@ -17,6 +17,24 @@
     .transition-smooth { transition: all 220ms cubic-bezier(.2,.9,.3,1); }
     .skill-pill { font-size: .85rem; padding: .28rem .6rem; border-radius: 999px; background: #fff; border: 1px solid #eef2ff; }
     .muted { color:#6b7280; }
+    #lb-image {
+    width: auto;
+    max-width: 90vw;
+    max-height: calc(100vh - 140px);
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Small fade transition for modal image */
+  #lb-image.fade {
+    opacity: 0;
+    transition: opacity 220ms ease;
+  }
+  #lb-image.show {
+    opacity: 1;
+  }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
