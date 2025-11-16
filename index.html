@@ -513,9 +513,9 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script>
+ <script>
 (function () {
-  // Elements
+  // Elements (modal)
   const lightbox = document.getElementById('lightbox');
   const lbImage = document.getElementById('lb-image');
   const lbCaption = document.getElementById('lb-caption');
@@ -527,27 +527,34 @@
   let currentGallery = [];
   let currentIndex = 0;
 
-  // helper: open modal
+  // Helper: open modal with gallery array and index
   function openLightbox(gallery, index) {
+    if (!Array.isArray(gallery) || gallery.length === 0) return;
     currentGallery = gallery;
-    currentIndex = index;
+    currentIndex = index % gallery.length;
     showModal();
   }
 
   function showModal() {
-    // fade out/in for smoother change
+    if (!lbImage) return;
+    // fade out/in for smoothing
     lbImage.classList.remove('show');
     lbImage.classList.add('fade');
 
-    // set src then reveal
-    lbImage.src = currentGallery[currentIndex].full;
-    lbImage.alt = currentGallery[currentIndex].alt || '';
-    lbCaption.textContent = currentGallery[currentIndex].caption || '';
+    const item = currentGallery[currentIndex];
+    lbImage.src = item.full || '';
+    lbImage.alt = item.alt || '';
+    lbCaption.textContent = item.caption || '';
 
-    // after image loads, show
     lbImage.onload = () => {
       lbImage.classList.remove('fade');
       lbImage.classList.add('show');
+    };
+    lbImage.onerror = () => {
+      // show caption fallback if image fails
+      lbImage.classList.remove('fade');
+      lbImage.classList.add('show');
+      lbCaption.textContent = item.caption ? item.caption + ' (image failed to load)' : 'Image failed to load.';
     };
 
     lightbox.classList.remove('hidden');
@@ -560,60 +567,70 @@
   }
 
   function prev() {
+    if (!currentGallery.length) return;
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
     showModal();
   }
   function next() {
+    if (!currentGallery.length) return;
     currentIndex = (currentIndex + 1) % currentGallery.length;
     showModal();
   }
 
-  // Build galleries and setup in-card slider autoplay
+  // Build galleries and setup per-card autoplay + main display
   document.querySelectorAll('.project-card').forEach((card, cardIdx) => {
     const thumbs = Array.from(card.querySelectorAll('.thumb'));
 
-    // If no thumbnails skip
-    if (thumbs.length === 0) return;
+    if (!thumbs.length) return;
 
-    // Build gallery array for this card
+    const galleryWrapper = card.querySelector('.gallery');
+    if (!galleryWrapper) return; // guard: nothing to attach to
+
+    // Build gallery array
     const gallery = thumbs.map(t => ({
-      full: t.dataset.full,
-      alt: t.alt,
-      caption: card.querySelector('h3')?.textContent || ''
+      full: t.dataset.full || t.getAttribute('src') || '',
+      alt: t.alt || '',
+      caption: card.querySelector('h3')?.textContent?.trim() || ''
     }));
 
-    // Create and insert a main display image at top of gallery area (before thumbs)
-    // This will be the autoplaying hero inside the card
-    const galleryWrapper = card.querySelector('.gallery');
+    if (gallery.length === 0) return;
+
+    // Create main display image (autoplaying carousel inside the card)
     const mainDisplay = document.createElement('img');
     mainDisplay.className = 'card-main rounded mb-3 w-full object-cover cursor-pointer';
-    mainDisplay.style.maxHeight = '260px'; // card visual height (adjust as needed)
+    mainDisplay.style.maxHeight = '260px';
     mainDisplay.style.width = '100%';
     mainDisplay.style.objectFit = 'cover';
-    // Use the first image initially
     mainDisplay.src = gallery[0].full;
     mainDisplay.alt = gallery[0].alt || '';
+
     // Insert mainDisplay before the thumbnails grid
     galleryWrapper.parentNode.insertBefore(mainDisplay, galleryWrapper);
 
-    // Keep track of index per card
     let index = 0;
-
-    // autoplay interval (per card) in ms
     const AUTOPLAY_MS = 2500;
     let autoplayTimer = null;
 
-    function showCardImage(i) {
-      index = i % gallery.length;
-      mainDisplay.src = gallery[index].full;
-      mainDisplay.alt = gallery[index].alt || '';
-      // visually mark active thumb (optional)
+    function markActiveThumb(i) {
       thumbs.forEach((t, j) => {
-        t.classList.toggle('ring-2 ring-indigo-500', j === index);
+        if (j === i) {
+          t.classList.add('ring-2');
+          t.classList.add('ring-indigo-500');
+        } else {
+          t.classList.remove('ring-2');
+          t.classList.remove('ring-indigo-500');
+        }
       });
     }
 
-    // start autoplay
+    function showCardImage(i) {
+      index = ((i % gallery.length) + gallery.length) % gallery.length;
+      const item = gallery[index];
+      mainDisplay.src = item.full || '';
+      mainDisplay.alt = item.alt || '';
+      markActiveThumb(index);
+    }
+
     function startAutoplay() {
       if (autoplayTimer) return;
       autoplayTimer = setInterval(() => {
@@ -629,33 +646,38 @@
       }
     }
 
-    // pause on hover
+    // Pause autoplay when hovering card, resume when leaving
     card.addEventListener('mouseenter', stopAutoplay);
     card.addEventListener('mouseleave', startAutoplay);
 
-    // clicking main display opens lightbox at current index
+    // Clicking main display opens lightbox at current index
     mainDisplay.addEventListener('click', () => openLightbox(gallery, index));
 
-    // clicking a thumb should immediately update main display and open modal if desired
+    // Thumbnail clicks: update main image (single click). Double-click opens lightbox.
     thumbs.forEach((t, i) => {
       t.addEventListener('click', (e) => {
-        // open modal on ctrl/cmd click or normal click — choose behavior:
-        // If user wants open modal on thumb click, uncomment the next line:
-        // openLightbox(gallery, i);
-
-        // Otherwise update the card main display and reset autoplay index
         showCardImage(i);
+      });
+      t.addEventListener('dblclick', (e) => {
+        openLightbox(gallery, i);
       });
     });
 
-    // start autoplay initially
+    // Make sure mainDisplay shows when it loads even if broken
+    mainDisplay.onerror = () => {
+      // keep a visual but mark as broken; you can point to a placeholder image here
+      mainDisplay.classList.remove('fade');
+      mainDisplay.classList.add('show');
+    };
+
+    // Start autoplay
     startAutoplay();
   });
 
-  // Modal controls
-  lbClose.addEventListener('click', closeLightbox);
-  lbPrev.addEventListener('click', prev);
-  lbNext.addEventListener('click', next);
+  // Modal controls (guard in case DOM missing)
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lbPrev) lbPrev.addEventListener('click', prev);
+  if (lbNext) lbNext.addEventListener('click', next);
 
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
@@ -663,7 +685,7 @@
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('hidden')) return;
+    if (!lightbox || lightbox.classList.contains('hidden')) return;
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') prev();
     if (e.key === 'ArrowRight') next();
@@ -671,6 +693,7 @@
 
 })();
 </script>
+
 
 
 </body>
