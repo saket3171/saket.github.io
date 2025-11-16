@@ -3,146 +3,224 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Saket — Web Developer | Portfolio</title>
-  <meta name="description" content="Saket — Web Developer (React, Node.js). Portfolio with projects, resume and contact." />
-  <!-- Open Graph (for link preview) -->
-  <meta property="og:title" content="Saket — Web Developer" />
-  <meta property="og:description" content="Web developer (1.5 yrs). Building performant frontends and clean backends." />
-  <meta property="og:image" content="assets/img/og-image.png" />
+  <title>Saket — Web & E-Commerce Developer</title>
+  <meta name="description" content="Saket — WordPress / Shopify developer. 1.5 years building production websites, React knowledge, Big Data research, learning AI/ML." />
+  <meta property="og:title" content="Saket — Web & E-Commerce Developer" />
+  <meta property="og:description" content="WordPress / Shopify developer with React skills, Big Data research experience, and growing AI/ML expertise." />
   <!-- Tailwind CDN for quick start -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="assets/img/favicon.png" />
+  <style>
+    /* small extras */
+    .accent { color: #4f46e5; } /* indigo-600 */
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(15,23,42,0.08); }
+    .transition-smooth { transition: all 220ms cubic-bezier(.2,.9,.3,1); }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
-  <nav class="max-w-4xl mx-auto p-6 flex items-center justify-between">
-    <a class="font-semibold text-lg" href="#">Saket</a>
-    <div class="space-x-4">
-      <a href="#projects" class="hover:underline">Projects</a>
-      <a href="#about" class="hover:underline">About</a>
-      <a href="#contact" class="hover:underline">Contact</a>
-      <a href="resume.pdf" class="px-3 py-1 border rounded">Resume</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="max-w-4xl mx-auto px-6 py-8">
-    <div class="md:flex md:items-center md:gap-8">
-      <div class="md:flex-1">
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight">Hi — I’m <span class="text-indigo-600">Saket</span>, Web Developer</h1>
-        <p class="mt-4 text-gray-600">I build modern web apps with <strong>React</strong>, <strong>Node.js</strong>, and <strong>PostgreSQL</strong>. 1.5 years experience; shipped live projects for clients.</p>
-        <div class="mt-6 space-x-3">
-          <a href="#projects" class="inline-block px-6 py-2 bg-indigo-600 text-white rounded">See projects</a>
-          <a href="resume.pdf" class="inline-block px-6 py-2 border rounded">Download resume</a>
-        </div>
-      </div>
-
-      <div class="mt-6 md:mt-0 md:w-48">
-        <img src="assets/img/headshot.jpg" alt="Saket headshot" class="rounded-2xl shadow-md w-full object-cover" />
+  <header class="border-b bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-md bg-indigo-600 text-white flex items-center justify-center font-semibold">S</div>
+        <div class="font-semibold text-lg">Saket</div>
+      </a>
+      <nav class="hidden md:flex items-center space-x-6 text-sm">
+        <a href="#work" class="hover:underline">Work</a>
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#publications" class="hover:underline">Publications</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#contact" class="px-3 py-1 border rounded">Resume</a>
+      </nav>
+      <div class="md:hidden">
+        <a href="#contact" class="px-3 py-1 border rounded text-sm">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- Skills -->
-  <section class="max-w-4xl mx-auto px-6 py-6">
-    <h2 class="text-xl font-semibold mb-4">Skills</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="p-4 bg-white rounded shadow">
-        <div class="font-semibold">Frontend</div>
-        <div class="text-sm text-gray-600 mt-1">HTML · CSS · JavaScript · React · Tailwind</div>
-      </div>
-      <div class="p-4 bg-white rounded shadow">
-        <div class="font-semibold">Backend</div>
-        <div class="text-sm text-gray-600 mt-1">Node.js · Express · REST APIs</div>
-      </div>
-      <div class="p-4 bg-white rounded shadow">
-        <div class="font-semibold">Database</div>
-        <div class="text-sm text-gray-600 mt-1">PostgreSQL · MongoDB</div>
-      </div>
-      <div class="p-4 bg-white rounded shadow">
-        <div class="font-semibold">Tools</div>
-        <div class="text-sm text-gray-600 mt-1">Git · GitHub · Docker (basic)</div>
-      </div>
-    </div>
-  </section>
+  <main class="max-w-5xl mx-auto px-6">
+    <!-- HERO -->
+    <section class="grid md:grid-cols-3 gap-8 items-center py-10">
+      <div class="md:col-span-2">
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight">Hi — I’m <span class="accent">Saket</span>, WordPress & Shopify Developer</h1>
+        <p class="mt-4 text-gray-600">I build and maintain production e-commerce sites and client websites. I also work with React for dynamic frontends, contributed to a Big Data research paper, and I’m currently learning AI/ML concepts to move into ML-related engineering roles.</p>
 
-  <!-- Projects -->
-  <section id="projects" class="max-w-4xl mx-auto px-6 py-6">
-    <h2 class="text-xl font-semibold mb-4">Selected projects</h2>
-    <div class="grid gap-6 md:grid-cols-2">
-      <!-- Project 1 -->
-      <div class="bg-white rounded shadow p-4">
-        <img src="assets/img/project1-1.png" alt="Project 1 screenshot" loading="lazy" class="rounded mb-3 w-full object-cover"/>
-        <h3 class="font-semibold">E-Commerce SPA</h3>
-        <p class="text-sm text-gray-600 mt-1">React · Node.js · MongoDB — Product listing, cart, payments (Stripe), admin dashboard.</p>
-        <div class="mt-3 flex items-center space-x-3">
-          <a href="https://live-demo-1.example" target="_blank" class="text-indigo-600">Live</a>
-          <a href="https://github.com/yourusername/project-ecommerce" target="_blank" class="text-gray-600">Code</a>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects" class="inline-block px-5 py-2 bg-indigo-600 text-white rounded transition-smooth">View work</a>
+          <a href="resume.pdf" class="inline-block px-5 py-2 border rounded transition-smooth">Download CV</a>
+          <a href="mailto:your.email@example.com" class="inline-block px-5 py-2 text-indigo-600 border rounded transition-smooth">Email me</a>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="p-3 bg-white rounded shadow text-center">
+            <div class="text-xs text-gray-500">Role</div>
+            <div class="font-medium">WP / Shopify Dev</div>
+          </div>
+          <div class="p-3 bg-white rounded shadow text-center">
+            <div class="text-xs text-gray-500">Experience</div>
+            <div class="font-medium">1.5 yrs</div>
+          </div>
+          <div class="p-3 bg-white rounded shadow text-center">
+            <div class="text-xs text-gray-500">Stack</div>
+            <div class="font-medium">React · JS · Liquid</div>
+          </div>
+          <div class="p-3 bg-white rounded shadow text-center">
+            <div class="text-xs text-gray-500">Research</div>
+            <div class="font-medium">Big Data analysis</div>
+          </div>
         </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="bg-white rounded shadow p-4">
-        <img src="assets/img/project2-1.png" alt="Project 2 screenshot" loading="lazy" class="rounded mb-3 w-full object-cover"/>
-        <h3 class="font-semibold">SaaS Dashboard</h3>
-        <p class="text-sm text-gray-600 mt-1">React · Vite · Express — Real-time charts, user auth, role-based access.</p>
-        <div class="mt-3 flex items-center space-x-3">
-          <a href="https://live-demo-2.example" target="_blank" class="text-indigo-600">Live</a>
-          <a href="https://github.com/yourusername/project-dashboard" target="_blank" class="text-gray-600">Code</a>
+      <div class="hidden md:block">
+        <img src="assets/img/headshot.jpg" alt="Saket headshot" class="w-56 h-56 rounded-2xl object-cover shadow-md" />
+        <div class="mt-3 text-sm text-gray-500">Saket — Web & E-Commerce Developer</div>
+      </div>
+    </section>
+
+    <!-- WORK / EXPERIENCE -->
+    <section id="work" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">Work Experience</h2>
+      <div class="space-y-4">
+        <div class="bg-white p-4 rounded shadow flex items-start md:items-center justify-between card-hover transition-smooth">
+          <div>
+            <div class="flex items-baseline space-x-3">
+              <div class="font-semibold">WordPress / Shopify Developer</div>
+              <div class="text-sm text-gray-500"> • Current</div>
+            </div>
+            <div class="text-sm text-gray-600 mt-2 max-w-2xl">Develop and maintain high-traffic e-commerce and client websites. Implement custom themes, optimize performance, integrate third-party services (payments, analytics), and support SEO & accessibility improvements.</div>
+            <ul class="mt-3 text-sm text-gray-600 list-disc list-inside">
+              <li>Built custom Shopify theme features and Liquid templates.</li>
+              <li>Migrated legacy WordPress sites and improved load times.</li>
+              <li>Collaborated with product & design to ship client deliverables.</li>
+            </ul>
+          </div>
+          <div class="text-sm text-gray-500 text-right">
+            <div>Company Name</div>
+            <div>Location</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">Freelance / Client Work</div>
+              <div class="text-sm text-gray-500">WordPress, Shopify, front-end improvements</div>
+            </div>
+            <div class="text-sm text-gray-500">2022 – Present</div>
+          </div>
+          <p class="text-sm text-gray-600 mt-2">Delivered 10+ client websites, focusing on e-commerce conversion, theme customization, and speed optimizations. Example improvements: reduced TTFB and improved Core Web Vitals for multiple clients.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Project 3 -->
+    <!-- SKILLS -->
+    <section id="skills" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">Skills & Tools</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        <div class="p-3 bg-white rounded shadow text-center">WordPress</div>
+        <div class="p-3 bg-white rounded shadow text-center">Shopify (Liquid)</div>
+        <div class="p-3 bg-white rounded shadow text-center">React</div>
+        <div class="p-3 bg-white rounded shadow text-center">JavaScript</div>
+        <div class="p-3 bg-white rounded shadow text-center">Node.js</div>
+        <div class="p-3 bg-white rounded shadow text-center">PostgreSQL / MongoDB</div>
+        <div class="p-3 bg-white rounded shadow text-center">Git & GitHub</div>
+        <div class="p-3 bg-white rounded shadow text-center">SEO & Performance</div>
+        <div class="p-3 bg-white rounded shadow text-center">Analytics / GTM</div>
+        <div class="p-3 bg-white rounded shadow text-center">Docker (basic)</div>
+        <div class="p-3 bg-white rounded shadow text-center">Big Data — research</div>
+        <div class="p-3 bg-white rounded shadow text-center">Learning: AI / ML</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">Selected Work</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Example project: replace with your projects -->
+        <article class="bg-white rounded shadow p-4 card-hover transition-smooth">
+          <img src="assets/img/project1-1.png" alt="Project screenshot" class="rounded mb-3 w-full object-cover" loading="lazy">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-semibold">E-commerce Migration (Client)</h3>
+              <p class="text-sm text-gray-600 mt-1">Shopify migration, custom theme, payment integration, performance tuning.</p>
+              <div class="mt-2 text-xs text-gray-500">Tech: Shopify · Liquid · JS · Stripe</div>
+            </div>
+            <div class="ml-4 text-right text-sm">
+              <a href="https://client-live.example" target="_blank" class="text-indigo-600">Live</a>
+              <div><a href="https://github.com/yourusername/project-ecommerce" target="_blank" class="text-gray-600">Code</a></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded shadow p-4 card-hover transition-smooth">
+          <img src="assets/img/project2-1.png" alt="Project screenshot" class="rounded mb-3 w-full object-cover" loading="lazy">
+          <h3 class="font-semibold">React Dashboard for Analytics</h3>
+          <p class="text-sm text-gray-600 mt-1">Interactive dashboards and charts for client analytics and reporting.</p>
+          <div class="mt-2 text-xs text-gray-500">Tech: React · Vite · Express · PostgreSQL</div>
+          <div class="mt-3 flex justify-between">
+            <a href="https://live-demo-2.example" target="_blank" class="text-indigo-600">Live</a>
+            <a href="https://github.com/yourusername/project-dashboard" target="_blank" class="text-gray-600">Code</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="text-sm text-gray-500 mt-4">Want more? See full project READMEs on my GitHub: <a href="https://github.com/yourusername" class="text-indigo-600" target="_blank">github.com/yourusername</a></p>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">Research & Publications</h2>
       <div class="bg-white rounded shadow p-4">
-        <img src="assets/img/project3-1.png" alt="Project 3 screenshot" loading="lazy" class="rounded mb-3 w-full object-cover"/>
-        <h3 class="font-semibold">Client Website</h3>
-        <p class="text-sm text-gray-600 mt-1">Static site for client, performance optimizations, SEO & accessibility improvements.</p>
-        <div class="mt-3 flex items-center space-x-3">
-          <a href="https://client-live.example" target="_blank" class="text-indigo-600">Live</a>
-          <a href="https://github.com/yourusername/project-client" target="_blank" class="text-gray-600">Code</a>
+        <h3 class="font-semibold">Big Data Analysis — Research Paper</h3>
+        <p class="text-sm text-gray-600 mt-2">Co-authored a research paper on Big Data analysis and visualization techniques. (Provide link or DOI)</p>
+        <p class="text-sm text-gray-500 mt-2">If you have a PDF or DOI, add it to your repo and link it here.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT / CAREER GOALS -->
+    <section id="about" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">About & Goals</h2>
+      <div class="bg-white rounded shadow p-4">
+        <p class="text-gray-600">I’m currently working on production e-commerce sites (WordPress and Shopify) and building robust front-ends with React. Long-term, I’m moving toward AI/ML engineering — learning models, data pipelines, and model deployment.</p>
+        <p class="text-gray-600 mt-3">I enjoy end-to-end ownership: from client requirements to implementation, testing and deployment.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-6 mb-12">
+      <h2 class="text-xl font-semibold mb-4">Contact</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-semibold">Get in touch</h3>
+          <p class="text-sm text-gray-600 mt-2">Email: <a href="mailto:your.email@example.com" class="text-indigo-600">your.email@example.com</a></p>
+          <p class="text-sm text-gray-600 mt-2">Location: City, Country</p>
+
+          <div class="mt-4 flex items-center space-x-3">
+            <!-- Small social icons -->
+            <a href="https://github.com/yourusername" target="_blank" class="text-gray-600 hover:text-indigo-600">GitHub</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-gray-600 hover:text-indigo-600">LinkedIn</a>
+            <a href="https://twitter.com/yourhandle" target="_blank" class="text-gray-600 hover:text-indigo-600">X</a>
+          </div>
         </div>
+
+        <form class="bg-white p-4 rounded shadow" action="https://formspree.io/f/<YOUR_ID>" method="POST">
+          <label class="block text-sm text-gray-700">Name</label>
+          <input name="name" required class="w-full border rounded px-3 py-2 mt-1"/>
+          <label class="block text-sm text-gray-700 mt-3">Email</label>
+          <input name="email" type="email" required class="w-full border rounded px-3 py-2 mt-1"/>
+          <label class="block text-sm text-gray-700 mt-3">Message</label>
+          <textarea name="message" rows="4" required class="w-full border rounded px-3 py-2 mt-1"></textarea>
+          <div class="mt-4 flex justify-between items-center">
+            <button class="px-4 py-2 bg-indigo-600 text-white rounded">Send</button>
+            <div class="text-xs text-gray-500">Or email me directly at <a href="mailto:your.email@example.com" class="text-indigo-600">your.email@example.com</a></div>
+          </div>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-4xl mx-auto px-6 py-6">
-    <h2 class="text-xl font-semibold mb-4">About</h2>
-    <p class="text-gray-600">I have 1.5 years of professional web development experience building user-centered applications and delivering live projects for clients. I enjoy writing clean, maintainable code and shipping features quickly.</p>
-    <ul class="mt-4 list-disc list-inside text-gray-600">
-      <li>Worked with small product teams and clients.</li>
-      <li>Responsible for both frontend and backend tasks.</li>
-      <li>Familiar with REST APIs, authentication, and deployment.</li>
-    </ul>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-4xl mx-auto px-6 py-6 mb-12">
-    <h2 class="text-xl font-semibold mb-4">Contact</h2>
-
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white p-4 rounded shadow">
-        <h3 class="font-semibold">Email</h3>
-        <p class="text-sm text-gray-600">your.email@example.com</p>
-        <h3 class="font-semibold mt-4">Social</h3>
-        <p class="text-sm"><a href="https://github.com/yourusername" target="_blank" class="text-indigo-600">GitHub</a> · <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-indigo-600">LinkedIn</a></p>
-      </div>
-
-      <!-- Simple contact form using Formspree -->
-      <form class="bg-white p-4 rounded shadow" action="https://formspree.io/f/<YOUR_ID>" method="POST">
-        <label class="block text-sm text-gray-700">Name</label>
-        <input name="name" required class="w-full border rounded px-3 py-2 mt-1"/>
-        <label class="block text-sm text-gray-700 mt-3">Email</label>
-        <input name="email" type="email" required class="w-full border rounded px-3 py-2 mt-1"/>
-        <label class="block text-sm text-gray-700 mt-3">Message</label>
-        <textarea name="message" rows="4" required class="w-full border rounded px-3 py-2 mt-1"></textarea>
-        <button class="mt-4 inline-block px-4 py-2 bg-indigo-600 text-white rounded">Send</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="border-t py-6 mt-6">
-    <div class="max-w-4xl mx-auto px-6 text-sm text-gray-500">© <span id="year"></span> Saket — Built with HTML, Tailwind & GitHub Pages</div>
-  </footer>
+    <footer class="py-6 text-sm text-gray-500 text-center">
+      © <span id="year"></span> Saket — Built with HTML, Tailwind & GitHub Pages
+    </footer>
+  </main>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
