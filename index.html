@@ -496,79 +496,164 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   <script>
-  (function () {
-    const lightbox = document.getElementById('lightbox');
-    const lbImage = document.getElementById('lb-image');
-    const lbCaption = document.getElementById('lb-caption');
-    const lbClose = document.getElementById('lb-close');
-    const lbPrev = document.getElementById('lb-prev');
-    const lbNext = document.getElementById('lb-next');
+(function () {
+  // Elements
+  const lightbox = document.getElementById('lightbox');
+  const lbImage = document.getElementById('lb-image');
+  const lbCaption = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
 
-    let currentIndex = 0;
-    let currentGallery = [];
+  // state
+  let currentGallery = [];
+  let currentIndex = 0;
 
-    // helper to open lightbox
-    function openLightbox(gallery, index) {
-      currentGallery = gallery;
-      currentIndex = index;
-      render();
-      lightbox.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+  // helper: open modal
+  function openLightbox(gallery, index) {
+    currentGallery = gallery;
+    currentIndex = index;
+    showModal();
+  }
+
+  function showModal() {
+    // fade out/in for smoother change
+    lbImage.classList.remove('show');
+    lbImage.classList.add('fade');
+
+    // set src then reveal
+    lbImage.src = currentGallery[currentIndex].full;
+    lbImage.alt = currentGallery[currentIndex].alt || '';
+    lbCaption.textContent = currentGallery[currentIndex].caption || '';
+
+    // after image loads, show
+    lbImage.onload = () => {
+      lbImage.classList.remove('fade');
+      lbImage.classList.add('show');
+    };
+
+    lightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function prev() {
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    showModal();
+  }
+  function next() {
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    showModal();
+  }
+
+  // Build galleries and setup in-card slider autoplay
+  document.querySelectorAll('.project-card').forEach((card, cardIdx) => {
+    const thumbs = Array.from(card.querySelectorAll('.thumb'));
+
+    // If no thumbnails skip
+    if (thumbs.length === 0) return;
+
+    // Build gallery array for this card
+    const gallery = thumbs.map(t => ({
+      full: t.dataset.full,
+      alt: t.alt,
+      caption: card.querySelector('h3')?.textContent || ''
+    }));
+
+    // Create and insert a main display image at top of gallery area (before thumbs)
+    // This will be the autoplaying hero inside the card
+    const galleryWrapper = card.querySelector('.gallery');
+    const mainDisplay = document.createElement('img');
+    mainDisplay.className = 'card-main rounded mb-3 w-full object-cover cursor-pointer';
+    mainDisplay.style.maxHeight = '260px'; // card visual height (adjust as needed)
+    mainDisplay.style.width = '100%';
+    mainDisplay.style.objectFit = 'cover';
+    // Use the first image initially
+    mainDisplay.src = gallery[0].full;
+    mainDisplay.alt = gallery[0].alt || '';
+    // Insert mainDisplay before the thumbnails grid
+    galleryWrapper.parentNode.insertBefore(mainDisplay, galleryWrapper);
+
+    // Keep track of index per card
+    let index = 0;
+
+    // autoplay interval (per card) in ms
+    const AUTOPLAY_MS = 2500;
+    let autoplayTimer = null;
+
+    function showCardImage(i) {
+      index = i % gallery.length;
+      mainDisplay.src = gallery[index].full;
+      mainDisplay.alt = gallery[index].alt || '';
+      // visually mark active thumb (optional)
+      thumbs.forEach((t, j) => {
+        t.classList.toggle('ring-2 ring-indigo-500', j === index);
+      });
     }
 
-    function closeLightbox() {
-      lightbox.classList.add('hidden');
-      document.body.style.overflow = '';
+    // start autoplay
+    function startAutoplay() {
+      if (autoplayTimer) return;
+      autoplayTimer = setInterval(() => {
+        index = (index + 1) % gallery.length;
+        showCardImage(index);
+      }, AUTOPLAY_MS);
     }
 
-    function render() {
-      lbImage.src = currentGallery[currentIndex].full;
-      lbImage.alt = currentGallery[currentIndex].alt || '';
-      lbCaption.textContent = currentGallery[currentIndex].caption || '';
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
     }
 
-    function prev() {
-      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-      render();
-    }
-    function next() {
-      currentIndex = (currentIndex + 1) % currentGallery.length;
-      render();
-    }
+    // pause on hover
+    card.addEventListener('mouseenter', stopAutoplay);
+    card.addEventListener('mouseleave', startAutoplay);
 
-    // build gallery arrays for each project card
-    document.querySelectorAll('.project-card').forEach(card => {
-      const thumbs = Array.from(card.querySelectorAll('.thumb'));
-      const gallery = thumbs.map(t => ({
-        full: t.dataset.full,
-        alt: t.alt,
-        caption: card.querySelector('h3')?.textContent || ''
-      }));
+    // clicking main display opens lightbox at current index
+    mainDisplay.addEventListener('click', () => openLightbox(gallery, index));
 
-      thumbs.forEach((thumb, i) => {
-        thumb.addEventListener('click', () => openLightbox(gallery, i));
+    // clicking a thumb should immediately update main display and open modal if desired
+    thumbs.forEach((t, i) => {
+      t.addEventListener('click', (e) => {
+        // open modal on ctrl/cmd click or normal click — choose behavior:
+        // If user wants open modal on thumb click, uncomment the next line:
+        // openLightbox(gallery, i);
+
+        // Otherwise update the card main display and reset autoplay index
+        showCardImage(i);
       });
     });
 
-    // controls
-    lbClose.addEventListener('click', closeLightbox);
-    lbPrev.addEventListener('click', prev);
-    lbNext.addEventListener('click', next);
+    // start autoplay initially
+    startAutoplay();
+  });
 
-    // click outside image closes
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
+  // Modal controls
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
 
-    // keyboard
-    document.addEventListener('keydown', (e) => {
-      if (lightbox.classList.contains('hidden')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    });
-  })();
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+})();
 </script>
+
 
 </body>
 </html>
