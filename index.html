@@ -7,6 +7,7 @@
   <meta name="description" content="Saket — Shopify & WordPress developer. 1.5 yrs building production e-commerce sites; React & Python automation; Big Data research; learning AI/ML." />
   <meta property="og:title" content="Saket — E-Commerce Developer" />
   <meta property="og:description" content="Shopify & WordPress developer with React, Python automation and Big Data research background." />
+  <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="assets/img/favicon.png" />
   <style>
@@ -19,68 +20,112 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
-  <header class="border-b bg-white">
+
+  <!-- NAV -->
+  <header class="bg-white border-b">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center space-x-3">
+      <a href="#home" class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-md bg-indigo-600 text-white flex items-center justify-center font-semibold">S</div>
         <div class="font-semibold text-lg">Saket</div>
       </a>
+
+      <!-- desktop nav -->
       <nav class="hidden md:flex items-center space-x-6 text-sm">
         <a href="#work" class="hover:underline">Work</a>
         <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#publications" class="hover:underline">Publications</a>
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#contact" class="px-3 py-1 border rounded">Resume</a>
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#skills" class="hover:underline">Skills</a>
+        <a href="#contact" class="px-3 py-1 border rounded">Contact</a>
       </nav>
+
+      <!-- mobile hamburger -->
       <div class="md:hidden">
-        <a href="#contact" class="px-3 py-1 border rounded text-sm">Contact</a>
+        <button id="nav-toggle" aria-label="Open menu" class="p-2 border rounded">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#work" class="block">Work</a>
+        <a href="#projects" class="block">Projects</a>
+        <a href="#services" class="block">Services</a>
+        <a href="#skills" class="block">Skills</a>
+        <a href="#contact" class="block">Contact</a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6">
+  <main id="home" class="max-w-5xl mx-auto px-6">
+
     <!-- HERO -->
     <section class="grid md:grid-cols-3 gap-8 items-center py-10">
       <div class="md:col-span-2">
         <h1 class="text-3xl md:text-4xl font-bold leading-tight">Hi — I’m <span class="accent">Saket</span>, E-Commerce Developer</h1>
         <p class="mt-4 text-gray-600">
-          I build and maintain production Shopify & WordPress stores, create custom themes and apps, and automate data migrations with Python. I have MERN experience, co-authored a Big Data research paper, and I'm upskilling in AI/ML to build smarter commerce systems.
+          I help brands scale online with Shopify & WordPress — custom themes, app integrations, and automation (Python). 1.5+ years of professional experience; 30+ project features shipped. Co-authored a Big Data research paper and currently upskilling in AI/ML for intelligent commerce.
         </p>
 
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#projects" class="inline-block px-5 py-2 bg-indigo-600 text-white rounded transition-smooth">View work</a>
+          <!-- REPLACE resume.pdf with your file in repo root -->
           <a href="resume.pdf" class="inline-block px-5 py-2 border rounded transition-smooth">Download CV</a>
+          <!-- REPLACE your.email@example.com -->
           <a href="mailto:your.email@example.com" class="inline-block px-5 py-2 text-indigo-600 border rounded transition-smooth">Email me</a>
         </div>
 
         <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div class="p-3 bg-white rounded shadow text-center">
-            <div class="text-xs muted">Role</div>
-            <div class="font-medium">WP / Shopify Dev</div>
+            <div class="text-xs muted">Specialization</div>
+            <div class="font-medium">Shopify / WP</div>
           </div>
           <div class="p-3 bg-white rounded shadow text-center">
             <div class="text-xs muted">Experience</div>
-            <div class="font-medium">1.5 yrs</div>
+            <div class="font-medium">1.5+ yrs</div>
           </div>
           <div class="p-3 bg-white rounded shadow text-center">
-            <div class="text-xs muted">Projects</div>
-            <div class="font-medium">20+ features</div>
+            <div class="text-xs muted">Delivered</div>
+            <div class="font-medium">30+ features</div>
           </div>
           <div class="p-3 bg-white rounded shadow text-center">
-            <div class="text-xs muted">Research</div>
-            <div class="font-medium">Big Data analysis</div>
+            <div class="text-xs muted">Next</div>
+            <div class="font-medium">AI / ML</div>
           </div>
         </div>
       </div>
 
       <div class="hidden md:block text-center">
-        <!-- REPLACE: assets/img/headshot.jpg with your headshot -->
-        <img src="https://via.placeholder.com/224x224.png?text=Headshot" alt="Saket headshot" class="w-56 h-56 rounded-2xl object-cover shadow-md" />
-        <div class="mt-3 text-sm muted">Saket — Shopify & WordPress Developer</div>
+        <!-- REPLACE with your headshot at assets/img/headshot.jpg -->
+        <img src="https://via.placeholder.com/224x224.png?text=Headshot" alt="Saket headshot" class="w-56 h-56 rounded-2xl object-cover shadow-md mx-auto" />
+        <div class="mt-3 text-sm muted">Shopify + WordPress Developer</div>
       </div>
     </section>
 
-    <!-- WORK / EXPERIENCE -->
+    <!-- SERVICES (for clients & recruiters) -->
+    <section id="services" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">Services I provide</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
+          <h3 class="font-semibold">Shopify Development</h3>
+          <p class="muted text-sm mt-1">Custom themes, sections, checkout improvements, app integrations, and store performance tuning.</p>
+          <div class="mt-3 text-xs muted">Tech: Liquid · Shopify API · Apps</div>
+        </div>
+        <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
+          <h3 class="font-semibold">WordPress & ACF</h3>
+          <p class="muted text-sm mt-1">Custom templates, ACF-driven admin UI, PHP back-end tweaks, and SEO & accessibility improvements.</p>
+          <div class="mt-3 text-xs muted">Tech: PHP · ACF · MySQL</div>
+        </div>
+        <div class="bg-white p-4 rounded shadow card-hover transition-smooth">
+          <h3 class="font-semibold">Automation & Data</h3>
+          <p class="muted text-sm mt-1">Python scripts for data migration, ETL, and automation between stores; analytics & reporting pipelines.</p>
+          <div class="mt-3 text-xs muted">Tech: Python · APIs · Pandas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
     <section id="work" class="py-6">
       <h2 class="text-xl font-semibold mb-4">Work Experience</h2>
       <div class="space-y-4">
@@ -91,12 +136,12 @@
               <div class="text-sm muted">• Current</div>
             </div>
             <div class="text-sm muted mt-2 max-w-2xl">
-              Maintain and extend production e-commerce stores: custom Liquid sections & themes, PHP/ACF backend work, SQL handling, and integrations (payments, analytics). Implemented Python automation scripts for data migrations.
+              Maintain and extend production e-commerce stores: custom Liquid sections & themes, PHP/ACF backend work, SQL handling, and integrations (payments, analytics). Built Python automation scripts for product and catalog migrations.
             </div>
             <ul class="mt-3 text-sm muted list-disc list-inside">
-              <li>Custom Shopify themes & Liquid sections based on designs.</li>
-              <li>PHP + ACF integrations and SQL queries for WordPress sites.</li>
-              <li>Automated store data migration & syncing via Python scripts.</li>
+              <li>Delivered 20+ Shopify features and 5–8 WordPress projects.</li>
+              <li>Improved performance (Core Web Vitals) and optimized checkout flows.</li>
+              <li>Built internal migration tools reducing manual effort significantly.</li>
             </ul>
           </div>
 
@@ -115,7 +160,7 @@
             <div class="text-sm muted">2021 – Present</div>
           </div>
           <p class="text-sm muted mt-2">
-            Built a MERN e-commerce prototype, a Simon game, and automation scripts. These projects demonstrate full-stack fundamentals and scripting ability.
+            Built a MERN e-commerce prototype (college), Simon game, and automation scripts. These demonstrate full-stack fundamentals, React knowledge and scripting ability.
           </p>
         </div>
       </div>
@@ -126,7 +171,7 @@
       <h2 class="text-xl font-semibold mb-4">Skills & Tools</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         <div class="bg-white p-4 rounded shadow">
-          <h3 class="font-medium">E-Commerce</h3>
+          <h3 class="font-medium">E-commerce</h3>
           <p class="muted text-sm mt-1">Shopify · Liquid · Store setup · App integrations · Payments</p>
           <div class="mt-3 flex flex-wrap gap-2">
             <span class="skill-pill">Shopify (Liquid)</span>
@@ -186,50 +231,68 @@
     <section id="projects" class="py-6">
       <h2 class="text-xl font-semibold mb-4">Selected Work (anonymized)</h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <!-- Company project: anonymized, no public link -->
+        <!-- Project 1: Confidential company work (no public link) -->
         <article class="bg-white rounded shadow p-4 card-hover transition-smooth">
-          <!-- REPLACE: use a real screenshot file at assets/img/project1-1.png -->
           <img src="https://via.placeholder.com/800x420.png?text=Project+Screenshot" alt="Project screenshot" class="rounded mb-3 w-full object-cover" loading="lazy">
-          <div>
-            <h3 class="font-semibold">E-commerce Store (Confidential)</h3>
-            <p class="text-sm muted mt-1">Custom Shopify theme & Liquid sections, checkout improvements and performance tuning.</p>
-            <div class="mt-2 text-xs muted">Tech: Shopify · Liquid · Python (migration)</div>
-            <div class="mt-2 text-sm">Role: Implemented theme features and wrote a migration script to import product/catalog data. (Link removed for confidentiality.)</div>
-          </div>
+          <h3 class="font-semibold">E-commerce Store (Confidential)</h3>
+          <p class="text-sm muted mt-1">Custom Shopify theme & Liquid sections, checkout improvements and performance tuning.</p>
+          <div class="mt-2 text-xs muted">Tech: Shopify · Liquid · Python (migration)</div>
+          <div class="mt-2 text-sm">Role: Implemented theme features and wrote a migration script to import product/catalog data. (Link withheld for confidentiality.)</div>
+          <div class="mt-3 text-sm muted">Impact: Reduced manual migration time and improved page load metrics.</div>
         </article>
 
-        <!-- Personal / college project with public code -->
+        <!-- Project 2: MERN (public code available) -->
         <article class="bg-white rounded shadow p-4 card-hover transition-smooth">
           <img src="https://via.placeholder.com/800x420.png?text=MERN+Project" alt="MERN project" class="rounded mb-3 w-full object-cover" loading="lazy">
           <h3 class="font-semibold">MERN E-commerce Prototype</h3>
-          <p class="text-sm muted mt-1">Prototype with product listing, cart, auth, and admin panel—built during college.</p>
+          <p class="text-sm muted mt-1">Product listing, cart, auth, and admin panel—college prototype showing full-stack skills.</p>
           <div class="mt-2 text-xs muted">Tech: React · Node · MongoDB</div>
           <div class="mt-3 flex justify-between text-sm">
             <a href="https://github.com/yourusername/project-mern" target="_blank" class="text-indigo-600">Code</a>
-            <a href="#" class="text-gray-400">Live (demo removed)</a>
+            <span class="text-gray-400">Live: demo removed</span>
           </div>
         </article>
 
-        <!-- Automation script / tool -->
+        <!-- Project 3: Python migration tool -->
         <article class="bg-white rounded shadow p-4 card-hover transition-smooth">
           <img src="https://via.placeholder.com/800x420.png?text=Script+Graphic" alt="Script graphic" class="rounded mb-3 w-full object-cover" loading="lazy">
-          <h3 class="font-semibold">Shopify Store Migration Tool (Python)</h3>
-          <p class="text-sm muted mt-1">Automated export/transform/import flows between stores; added retry logic and logging.</p>
+          <h3 class="font-semibold">Shopify Store Migration Tool</h3>
+          <p class="text-sm muted mt-1">Automated export/transform/import flows between stores; retry logic & logging.</p>
           <div class="mt-2 text-xs muted">Tech: Python · Shopify API</div>
           <div class="mt-3 text-sm">Role: Script author — reduced manual migration time significantly. <a href="https://github.com/yourusername/shopify-migration" target="_blank" class="text-indigo-600">Code</a></div>
         </article>
 
-        <!-- Small WordPress case -->
+        <!-- Project 4: WordPress ACF work -->
         <article class="bg-white rounded shadow p-4 card-hover transition-smooth">
           <img src="https://via.placeholder.com/800x420.png?text=WordPress+Screenshot" alt="WordPress screenshot" class="rounded mb-3 w-full object-cover" loading="lazy">
           <h3 class="font-semibold">WordPress — ACF Custom Build</h3>
           <p class="text-sm muted mt-1">ACF-based custom templates, backend data handling and SQL-driven features for client CMS.</p>
           <div class="mt-2 text-xs muted">Tech: WordPress · ACF · PHP · MySQL</div>
-          <div class="mt-3 text-sm">Role: Implemented ACF fields, custom post types and server-side SQL integration. (Client link withheld.)</div>
+          <div class="mt-3 text-sm">Role: Implemented ACF fields, CPTs and server-side SQL integration. (Client link withheld.)</div>
         </article>
       </div>
 
       <p class="text-sm muted mt-4">More projects & READMEs on my GitHub: <a href="https://github.com/yourusername" class="text-indigo-600" target="_blank">github.com/yourusername</a></p>
+    </section>
+
+    <!-- TESTIMONIALS / IMPACT HIGHLIGHTS -->
+    <section id="testimonials" class="py-6">
+      <h2 class="text-xl font-semibold mb-4">Impact highlights</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="bg-white p-4 rounded shadow text-center">
+          <div class="font-semibold">Migration speed</div>
+          <div class="muted text-sm mt-1">Built migration tooling that reduced manual migration time by ~80% (internal).</div>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center">
+          <div class="font-semibold">Performance</div>
+          <div class="muted text-sm mt-1">Improved page load / Core Web Vitals for multiple stores.</div>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center">
+          <div class="font-semibold">Deliveries</div>
+          <div class="muted text-sm mt-1">Delivered 20+ Shopify features and several WordPress projects for production clients.</div>
+        </div>
+      </div>
+      <!-- Optional: replace above with real short testimonials -->
     </section>
 
     <!-- PUBLICATIONS -->
@@ -238,16 +301,20 @@
       <div class="bg-white rounded shadow p-4">
         <h3 class="font-semibold">Big Data Analysis — Research Paper</h3>
         <p class="text-sm muted mt-2">Co-authored a paper on Big Data analysis and visualization techniques.</p>
-        <div class="mt-3 text-sm"><a href="assets/papers/bigdata-paper.pdf" target="_blank" class="text-indigo-600">Download paper (PDF)</a></div>
+        <div class="mt-3 text-sm"><!-- REPLACE with real PDF path if available -->
+          <a href="assets/papers/bigdata-paper.pdf" target="_blank" class="text-indigo-600">Download paper (PDF)</a>
+        </div>
       </div>
     </section>
 
-    <!-- ABOUT / CAREER GOALS -->
+    <!-- ABOUT -->
     <section id="about" class="py-6">
       <h2 class="text-xl font-semibold mb-4">About & Goals</h2>
       <div class="bg-white rounded shadow p-4">
-        <p class="muted">I’m a CSE graduate specializing in e-commerce development for Shopify and WordPress. I’ve delivered production features, theme customizations, and automation tools. I’m now preparing for a transition into AI/ML-driven e-commerce engineering by learning data pipelines, modeling basics, and deployment workflows.</p>
-        <p class="muted mt-3">I enjoy owning features end-to-end — from requirements to implementation, testing, and deployment.</p>
+        <p class="muted">
+          I’m a CSE graduate specializing in e-commerce development (Shopify & WordPress). I enjoy full-stack problem solving — building themes, automating migration flows, and optimizing performance. Over the next 6–12 months I’m focusing on Python & ML fundamentals to combine e-commerce with data-driven features.
+        </p>
+        <p class="muted mt-3">I prefer end-to-end ownership: requirement → implementation → testing → deployment.</p>
       </div>
     </section>
 
@@ -261,12 +328,14 @@
           <p class="text-sm muted mt-2">Location: City, Country</p>
 
           <div class="mt-4 flex items-center space-x-3">
+            <!-- REPLACE links -->
             <a href="https://github.com/yourusername" target="_blank" class="text-gray-600 hover:text-indigo-600">GitHub</a>
             <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-gray-600 hover:text-indigo-600">LinkedIn</a>
             <a href="https://twitter.com/yourhandle" target="_blank" class="text-gray-600 hover:text-indigo-600">X</a>
           </div>
         </div>
 
+        <!-- Contact form (Formspree) -->
         <form class="bg-white p-4 rounded shadow" action="https://formspree.io/f/<YOUR_ID>" method="POST">
           <label class="block text-sm text-gray-700">Name</label>
           <input name="name" required class="w-full border rounded px-3 py-2 mt-1"/>
@@ -279,16 +348,25 @@
             <div class="text-xs muted">Or email: <a href="mailto:your.email@example.com" class="text-indigo-600">your.email@example.com</a></div>
           </div>
         </form>
+
       </div>
     </section>
 
     <footer class="py-6 text-sm text-gray-500 text-center">
       © <span id="year"></span> Saket — Built with HTML, Tailwind & GitHub Pages
     </footer>
+
   </main>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    // Mobile nav toggle
+    document.getElementById('nav-toggle').addEventListener('click', function(){
+      var m = document.getElementById('mobile-menu');
+      if (m.classList.contains('hidden')) m.classList.remove('hidden'); else m.classList.add('hidden');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
